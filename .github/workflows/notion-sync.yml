@@ -2,24 +2,38 @@ name: Sync Notion to GitHub
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch:    
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write       
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
+      - name: Check Notion manifest
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo ""
+          echo "Python learning contents:"
+          ls -la python_learning
+          echo ""
+          echo "Searching for .notion.txt:"
+          find . -name ".notion.txt" -print
+          echo ""
+          echo "Manifest content:"
+          cat python_learning/.notion.txt
+
       - name: Run Notion Sync
-        uses: batuhan/notion-sync-action@v1
+        uses: batuhan/notion-sync-action@main
         with:
           notion_token: ${{ secrets.NOTION_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        
