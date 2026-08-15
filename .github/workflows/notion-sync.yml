@@ -18,6 +18,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Remove previous generated Notion files
+      - name: Clean previous Notion sync
+        run: |
+          rm -rf python_learning/HDFC-Life-Intern-HUB
+          rm -rf python_learning/HDFC-Life-Intern-HUB-2
+          rm -f python_learning/HDFC-Life-Intern-HUB.md
+          rm -f python_learning/HDFC-Life-Intern-HUB-2.md
+
       - name: Run Notion Sync
         uses: batuhan/notion-sync-action@main
         with:
