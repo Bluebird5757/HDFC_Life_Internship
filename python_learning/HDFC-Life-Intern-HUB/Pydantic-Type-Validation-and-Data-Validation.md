@@ -4,11 +4,11 @@ notion_url: https://app.notion.com/p/Pydantic-Type-Validation-and-Data-Validatio
 title: Pydantic(Type Validation and Data Validation)
 source_file: /home/runner/work/HDFC_Life_Internship/HDFC_Life_Internship/python_learning/.notion.txt
 source_line: 1
-last_edited_time: '2026-08-09T20:41:00.000Z'
+last_edited_time: '2026-08-13T13:16:00.000Z'
 notion_parent:
   type: page_id
   page_id: 3b74fa76-9938-8028-a9a9-db4ca8197e34
-fetched_at: '2026-08-09T20:55:48.220Z'
+fetched_at: '2026-08-15T14:43:45.230Z'
 source_ref: https://app.notion.com/p/HDFC-Life-Intern-HUB-3b74fa7699388028a9a9db4ca8197e34?source=copy_link
 ---
 
@@ -231,3 +231,81 @@ def validate_emergency_contact(cls,model):
 
 
 another concept Computed Fields eg:-
+
+
+```python
+@computed_field
+@property # lets you use the methods as an attribute
+def calculate_bmi(self):
+  bmi=round(self.weight/(self.height**2),2)
+  return bmi
+
+# when wanting the bmi anywhere to be printed you have to call patient.method name like 
+
+def insert_patient_data(patient:Patient):
+    print(patient.name)
+    print(patient.age)
+    print(patient.weight)
+    print(patient.married)
+    print(patient.allergies)
+    print(patient.contact_details)
+    
+print("BMI",patient.calculate_bmi)
+```
+
+
+another concept is nested model  eg:-
+
+
+```python
+from pydantic import BaseModel
+
+class Address(BaseModel):
+    city:str
+    state:str
+    pin:str
+
+
+class Patient(BaseModel):
+    name:str
+    age:int
+    gender:str
+    address: Address
+
+adress_dict={'city':'gurgaon','state':'haryana','pin':'99999'}
+address1=Address(**adress_dict)
+patient_dict={'name':'nitish','gender':'male','age':35,'address':address1}
+patient1=Patient(**patient_dict)
+
+print(patient1.address.city)
+```
+
+
+benefits of nested model:-
+
+- reuse of code the address can be used anywhere
+- the validation of nested model is automatic
+
+another concept there is converting the model to Python Dict eg:-
+
+
+```python
+temp=patient.model_dump()
+print(type(temp)) # this will print dict
+
+# we can export only one field also and exclude only one field
+temp=patient.model_dump(include=['name'])
+temp=patient.model_dump(exclude=['name'])
+
+# supposingly we didnt set any field while creating the data so there is
+# exclude_unset=True which exclude the values that werent set but have default values
+```
+
+
+if json want:-
+
+
+```python
+temp=patient.model_dump_json()
+print(type(temp)) # this wil print str
+```
