@@ -26,7 +26,19 @@ jobs:
           mode: full
           path_filter: '**/.notion.txt'
           assets_dir: notion-assets
-          commit: true
+          commit: false
           dry_run: false
-          commit_user_name: github-actions[bot]
-          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Commit synced files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Sync Notion to GitHub"
+            git push
+          fi
