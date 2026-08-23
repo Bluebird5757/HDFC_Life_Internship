@@ -4,11 +4,11 @@ notion_url: https://app.notion.com/p/HDFC-Life-Intern-HUB-3b74fa7699388028a9a9db
 title: HDFC Life Intern HUB
 source_file: /home/runner/work/HDFC_Life_Internship/HDFC_Life_Internship/python_learning/.notion.txt
 source_line: 1
-last_edited_time: '2026-08-20T14:52:00.000Z'
+last_edited_time: '2026-08-22T18:13:00.000Z'
 notion_parent:
   type: workspace
   workspace: true
-fetched_at: '2026-08-22T00:38:39.216Z'
+fetched_at: '2026-08-23T00:41:11.747Z'
 source_ref: https://app.notion.com/p/HDFC-Life-Intern-HUB-3b74fa7699388028a9a9db4ca8197e34?source=copy_link
 ---
 
