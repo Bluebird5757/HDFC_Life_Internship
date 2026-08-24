@@ -4,18 +4,18 @@ notion_url: https://app.notion.com/p/Models-in-LangChain-3c44fa76993880f9aa74d81
 title: Models in LangChain
 source_file: /home/runner/work/HDFC_Life_Internship/HDFC_Life_Internship/python_learning/.notion.txt
 source_line: 1
-last_edited_time: '2026-08-23T09:05:00.000Z'
+last_edited_time: '2026-08-23T11:33:00.000Z'
 notion_parent:
   type: page_id
   page_id: 3b74fa76-9938-8028-a9a9-db4ca8197e34
-fetched_at: '2026-08-23T11:32:07.058Z'
+fetched_at: '2026-08-24T00:40:01.924Z'
 source_ref: https://app.notion.com/p/HDFC-Life-Intern-HUB-3b74fa7699388028a9a9db4ca8197e34?source=copy_link
 ---
 
 ## Language Models
 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/90e4fa76-9938-8198-89c0-0003c2ea03dc/e4bf0e3b-35cf-4696-b5f5-4630dee93204/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB46652FC52W6%2F20260823%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260823T113203Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAoaCXVzLXdlc3QtMiJHMEUCIQDHK1d2lNN02jBQID7gPNcYtxSR3ODYXjb7EUkT%2Bi%2BW3AIgVYbYvlgh5n3NYUKvVlmfK8rcEQKt%2B0MXBU6IVwo5brcqiAQI0v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDOKV4g8k0A%2BSc4EKJSrcA6XThKN0gwLErvWl5W1W71LYYhBnb9Qs1J91w03ImaSbAAnfB%2Bs95CU%2Fwwp9Q%2BQzJB7DSSqtVqF4%2F5n79LwWzZA2xN9PX7Ch%2FzjENfjVjm3oSlJXWVI%2BQeraScYbRhF2H2Krg9fdPU2YUwRVewob30Uo98APcvtk1gLQhZ4E1fjrwb4UhpepRv%2FVV4qGygmbauSI6aDsDBCZoDxOD3Mf%2FHcpXmMHwXgNg8Tpyj2hTY0IJ6TUQVtLn7m59EHyvBPceBwXEsyQ1kuXwjQ%2F4AjpSyh79y7jvYJ8NQdYeA6XKRSNACw4%2Br4sD747RRcigFrx67ylLvaaRdspsQMZNnTSFAyeKaWyaP6Z79TW6me%2B1Y0BuP3hOIOzsaV6KGh541EMSOdDBS31bGYsJqwWwhsnaDusX0Qh51%2Bh%2FflTbh85nEykLVjUlsbh2cdrqjCAY3nTTg%2FeRAgomAecIXBKwZV3rV41ObZuVN0nrqZk0%2B0S0z2fp4B7V5FZqjyOpbOriLvsPEJ%2BM2q7yJoZZRyrzJFroQGQ8f8xJzzj5u5%2FBFtAV4MikZVkaPlNEWutezzzRijQsG7yhrY3Vw4D88AyCV%2Fgf3qjMy20494u0XWGw%2BGye97JaUnoScEHXlT%2FF2wmMK%2F3qtQGOqUB5lm54J%2FLrriRn8YQKqFzENc7ilQUYhLIw8%2BhPAOn%2BtUmgtnCA9kQAozMrW4cwoYmFKpqdmJoneo6tW3VXp3YiZtVVa%2BHYSs8lYqNJvV0UXNmiXUdYRuA2jnu3lJAToHLWH191wGU3qC4D2uign9Pxp4US33mUlunmezEluqTY%2FWkSxd5%2Fpfm4nN3VwzJWkyOO%2F3B5rFiFiAf8vHCqwwaJYlvCmZL&X-Amz-Signature=0383a4f2128a7e2331d975ec30e8aebd3cfa555e72ca12119da7cd9474cc6d3c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/90e4fa76-9938-8198-89c0-0003c2ea03dc/e4bf0e3b-35cf-4696-b5f5-4630dee93204/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4663WUGEPNE%2F20260824%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260824T003959Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBkaCXVzLXdlc3QtMiJHMEUCIQC9ug5ej8Kr7mHtlOKCRZE9h2NpqHgCGXUgR8%2Bq8viiNgIgPJ5Cqxz6W8wUaq1DSfS0XjviEk%2BbfGh%2BbBwqCFy7308qiAQI4v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDEGfFei1tJy3yjRsxCrcA19MZVN8WFlN%2BP264bZl0g5k9XmUZ4pvb%2BJV5RIJ89eK3IweG4eoC9vdbu%2BPgwPNjj4uINIZlDFPlt2KaBE%2BkP16XvvtFJsVv%2FqN068WM3MJX3s44leGH%2BPK5GTmTCsMApuoBoHoIRKS%2B6U4ZnMZz%2FnEXl5%2BcjWhC%2FRpJvWio3yeJRkZtQXkKi47Q8juqFMecdD7t7iBoGvAE4bl3Xh8LflduMTVF7hQx3DP3p%2FIL04WesNUmmKHF74TK3Z0RlUdySvd%2FDxx8a3%2FW%2FmwsunmTFeegf9xxJVM2HinzHNJ5IWWgUOqXWVPljmdRjWcxMn%2B7lXhjx20JRVpiBPBits0blpE%2Fx78vHeSAQR3I5nYgQGYFVw8UnvEAnjOG6X7UxltNrYa8EhoPKLZYG3xkbL1WqTVpS0QehBVWSHKwTKo67RXjHbJ1HFNKC2x6Hixz9bYX35g7KbWOywlOOtUVZTaTN15XUuLoaKQ3cj9%2F66HkwK5fyGwZEmKKidTcHoWAiu7aJQQSl8rw0Y%2FcEDdjImMz5Vwm7xz2ZUeVMAp7bbP7X2m2pLJqFgKqoe7rPKBK5ynhDk8gj5RVgkNyebjyiQSWqZbFFcoNJ3%2FBEjPOeQhJTORGSgLLNpo%2BfHTvzGTMK%2BirtQGOqUBOBnuUasZ9qK%2B88XDavt%2BbiY07KiGC2fGPfb%2BXNffwQq8obN2Q1i1vwGhraQyF8%2Bw%2FfurTiLoddDJt53TyAEGIKq2xQ9snHChrUMnFr%2FH%2FwxwvuQsPprnzK%2FM2gK2oi%2FMA6s7mVAaWLjSbEahJtlxlJjmkMfbWfcJiproWuTIjxRS1qwLwKdwlr6yBxLDlrn4zMBfPuXEVBZ7o%2BpmnojSkNFYsZ4A&X-Amz-Signature=e1ae4fa75e144f821504b92a013e2f48995e10b7116726c45a939327a5c0dc9f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 
 
 there are open source and closed source models and to get the open source models we can get to huggingface which is the largest repository of open source llms
@@ -141,3 +141,23 @@ print(str(embedding.embed_query("Delhi is the capital of india")))
 
 
 Now code for the document parser and to compare the query in the documents
+
+
+```python
+from langchain_openai import OpenAIEmbeddings
+from dotenv import load_dotenv
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+load_dotenv()
+
+embedding=OpenAIEmbeddings(model='',dimensions=300)
+documents=["","",""]
+query=""
+embedding_doc=embedding.embed_documents(documents)
+embedding_query=embedding.embed_query(query)
+scores=cosine_similarity(embedding_doc,[embedding_query])
+index,score=(sorted(list(enumerate(scores)),key=lambda x:x[1])[-1])
+print(query)
+print(documents[index])
+print(score)
+```
